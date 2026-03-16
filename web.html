@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>ALEKS</title>
+<link id="favicon"         rel="shortcut icon" href="ICONS/AleksIcon.png" type="image/x-icon">
+<style>
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Photos/StarBG.avif') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+.scroll-box {
+  border: 2px solid white;
+  height: 430px; /* Set a specific height */
+  overflow-y: auto; /* Add vertical scrollbar only when content overflows */
+  padding: 5px;
+}
+.container {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            padding: 5px;
+}
+.button {
+    position: relative; /* Add this to anchor the absolute image */
+    border: 2px solid white;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    overflow: hidden;    /* Optional: clips image if it overflows */
+  }
+
+
+  .button img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Use 'cover' to maintain aspect ratio while filling */
+    opacity: 0.7;
+  }
+.button a {
+            text-decoration: none;
+            color: white;
+display: block;
+}
+
+
+.button .name{
+position: absolute;
+    bottom: 10px; /* Adjusted to sit better */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap; /* Prevents text from wrapping */
+
+
+}
+.button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.hidden-buttons {
+  display: none; /* Hide the container by default */
+}
+.visible-buttons {
+  display: block; /* Show the container when this class is added */
+}
+
+
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px; /* width of the vertical scrollbar */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #ff0000; /* color of the draggable handle */
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body style="background-color: #6E6666">
+<button onclick="openTabs()">Suggestions</button>
+<div style="position: relative; height: 50px; border: 0px solid black;">
+  <button style="position: absolute; top: 10px; right: 10px;" id="showMoreButton" type="button">Show More Buttons</button>
+<div style="position: relative; height: 50px; border: 0px solid black;" id="hiddenButtonsContainer" class="hidden-buttons">
+<input style="position: absolute; top: 33px; right: 200px;" type="file" id="imageUploader" accept="image/*">
+  <button style="position: absolute; top: 33px; right: 140px;" type="button" onclick="setFavicon()">Change Tab Icon</button>
+  <button style="position: absolute; top: 33px; right: 10px;" type="button" onclick="TabName()">Change Tab Name</button>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+<h1 style="text-align: center; vertical-align: top;">
+  GAMES
+</h1>
+<h2>Uh like unblocked games or smth like that</h2>
+<div class="scroll-box">
+<div class="container">
+
+
+<div class="button"><a href="Games/Five Nights at Epstein's.html">
+<img src="Photos/BIG E.png" alt="Background Image">
+<div class="name">Five Nights at Epstein's</div>
+</div></a>
+
+
+<div class="button"><a href="Games/Crazy Cattle 3D.html">
+<img src="Photos/crazy Cattle.png" alt="Background Image">
+<div class="name">Crazy Cattle 3D</div>
+</div></a>
+
+
+<div class="button"><a href="Games/Temple Run 2.html">
+<img src="Photos/Temple.jpg" alt="Background Image">
+<div class="name">Temple Run 2</div>
+</div></a>
+
+
+<div class="button"><a href="Games/Undertale-HTML-main/index.html">
+<img src="Games/Undertale-HTML-main/favicon.png" alt="Background Image">
+<div class="name">UNDERTALE</div>
+</div></a>
+
+
+<div class="button"><a href="Games/Geometry Dash Lite.html">
+<img src="Photos/geoDash.webp" alt="Background Image">
+<div class="name">Geometry Dash Lite</div>
+</div></a>
+
+
+<div class="button"><a href="web.html">
+<img src="Photos/White.png" alt="Background Image">
+<div class="name">BLANK</div>
+</div></a>
+
+
+<div class="button"><a href="web.html">
+<img src="Photos/White.png" alt="Background Image">
+<div class="name">BLANK</div>
+</div></a>
+
+
+<div class="button"><a href="web.html">
+<img src="Photos/White.png" alt="Background Image">
+<div class="name">BLANK</div>
+</div></a>
+
+
+
+
+
+
+</div>
+</div>
+
+
+<script>
+function TabName(){
+let NameT = prompt("Tab Name?");
+document.title = `${NameT}`;
+}
+
+
+
+
+document.getElementById('showMoreButton').addEventListener('click', function() {
+  const container = document.getElementById('hiddenButtonsContainer');
+  container.classList.toggle('visible-buttons');
+  // Optional: hide the "Show More" button after click
+  // this.style.display = 'none'; 
+});
+
+
+
+
+
+
+
+
+
+
+function setFavicon() {
+    const fileInput = document.getElementById('imageUploader');
+    const files = fileInput.files;
+
+
+    if (files && files.length > 0) {
+        const reader = new FileReader();
+
+
+        reader.onload = function(e) {
+            const imageUrl = e.target.result;
+            const faviconLink = document.getElementById('favicon');
+            
+            // Update the href attribute with the new image URL
+            faviconLink.href = imageUrl; 
+            
+            // Optional: update the type attribute based on the file type
+            faviconLink.type = files[0].type; 
+        };
+
+
+        // Read the file as a data URL
+        reader.readAsDataURL(files[0]);
+    } else {
+        alert("Please select an image file to upload.");
+    }
+}
+
+
+
+
+
+
+function openTabs() { const urls = [ "https://docs.google.com/document/d/1UJ47lUExzaqsGK9M_v2Fx3B9yqt1XBohM27g4IIyZsY/edit?usp=sharing"]; urls.forEach(url => window.open(url, "_blank")); }
+
+
+</script>
+
+
+</body>
+</html>
