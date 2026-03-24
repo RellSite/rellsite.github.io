@@ -1,69 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iframe with Fullscreen Button</title>
+<html>
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FN7LEVWXD"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-7FN7LEVWXD');
+        </script>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bad Piggies | Seraph</title>
+    <link rel="shortcut icon" href="../../images/ico.ico" type="image/x-icon">
+    <script src="../../storage/js/cloak.js"></script>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #121212;
-            color: white;
-        }
-        iframe {
-            width: 80%;
-            height: 60%;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+      }
     </style>
-</head>
-<body>
-    <iframe id="iframe" src="index2.html" allow="autoplay; microphone;"></iframe>
-    <button onclick="toggleFullscreen()">Fullscreen</button>
-
+  </head>
+  <body>
     <script>
-        function toggleFullscreen() {
-            const iframe = document.getElementById('iframe');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.webkitRequestFullscreen) { // Safari
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE11
-                iframe.msRequestFullscreen();
-            } else {
-                alert('Fullscreen is not supported in this browser.');
-            }
-        }
+      function loadLocalRuffle() {
+          var script = document.createElement('script');
+          script.src = '../../storage/ruffle/ruffle.js';
+          document.body.appendChild(script);
+      }
 
-        // Ensure iframe is interactive and can play sound
-        window.addEventListener('message', (event) => {
-            console.log('Message from iframe:', event.data);
-        });
+      var cdnScript = document.createElement('script');
+      cdnScript.src = 'https://unpkg.com/@ruffle-rs/ruffle';
+      cdnScript.onerror = loadLocalRuffle;
+      document.body.appendChild(cdnScript);
     </script>
-</body>
+
+    <div id="ruffle" width="100%" height="100%"></div>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+          const player = ruffle.createPlayer();
+          const container = document.getElementById("container");
+          container.appendChild(player);
+          player.style.height = "600px";
+          player.style.width = "817px";
+          player.load("unfair-mario.swf");
+      });
+    </script>
+  </body>
 </html>
