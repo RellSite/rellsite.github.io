@@ -5,24 +5,36 @@
 <link id="favicon" rel="icon" href="ICONS/AleksIcon.png" type="image/x-icon">
 <style>
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('Photos/StarBG.avif') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-        }
-.scroll-box {
-  border: 2px solid white;
-  height: 430px; /* Set a specific height */
-  overflow-y: auto; /* Add vertical scrollbar only when content overflows */
-  padding: 5px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('Photos/StarBG.avif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    
+    /* ADD THESE THREE LINES */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Forces body to be exactly the screen height */
 }
+
+.scroll-box {
+    border: 2px solid white;
+    padding: 5px;
+    
+    /* CHANGE THESE LINES */
+    flex-grow: 1;       /* This pushes the box to the very bottom */
+    overflow-y: auto;   /* Scroll only when needed */
+    overflow-x: hidden; /* Prevents side-scrolling on zoom */
+}
+
 .container {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 10px;
-            padding: 5px;
+    display: grid;
+    /* Use auto-fill instead of repeat(6) to prevent side-scrolling when zooming */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px;
+    padding: 5px;
+    justify-items: center; /* Centers buttons if there is extra space */
 }
 .button {
     position: relative; /* Add this to anchor the absolute image */
