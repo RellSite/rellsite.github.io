@@ -10,7 +10,7 @@
         </script>
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bad Piggies | Seraph</title>
+    <title>Unfair Mario</title>
     <link rel="shortcut icon" href="../../images/ico.ico" type="image/x-icon">
     <script src="../../storage/js/cloak.js"></script>
 
@@ -41,12 +41,13 @@
       window.RufflePlayer = window.RufflePlayer || {};
       window.addEventListener("load", (event) => {
         const ruffle = window.RufflePlayer.newest();
-          const player = ruffle.createPlayer();
-          const container = document.getElementById("container");
-          container.appendChild(player);
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("ruffle");
+        player.id = "player";
+        container.appendChild(player);
           player.style.height = "600px";
           player.style.width = "817px";
-          player.load("unfair-mario.swf");
+        player.load("unfair-mario.swf");
       });
     </script>
   </body>
