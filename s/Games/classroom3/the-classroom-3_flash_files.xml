@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file name="TheClassroom3.swf" source="original">
+    <mtime>1608769751</mtime>
+    <size>1827055</size>
+    <md5>e69dd9c1b04629addbcb5978d24cbfcb</md5>
+    <crc32>b5b824b7</crc32>
+    <sha1>16867f301aa07ef0bf98c070d18a16c0a1f29f6d</sha1>
+    <format>Shockwave Flash</format>
+    <length>35.92</length>
+    <height>0</height>
+    <width>0</width>
+  </file>
+  <file name="TheClassroom3_flash_screenshot.png" source="original">
+    <mtime>1608769775</mtime>
+    <size>290466</size>
+    <md5>8e506106e51e88a7c631ac39cac7521f</md5>
+    <crc32>913dbbcb</crc32>
+    <sha1>be655be7200bc646441127fcecd843a44b18e1dd</sha1>
+    <format>Emulator Screenshot</format>
+  </file>
+  <file name="__ia_thumb.jpg" source="original">
+    <mtime>1608769815</mtime>
+    <size>24276</size>
+    <md5>da9f7bec5b08bcbcabcf0afc384c2b9f</md5>
+    <crc32>4d6f3c31</crc32>
+    <sha1>6ec8b78c8fd11bdc3dd6b981d1efee7abfaeef43</sha1>
+    <format>Item Tile</format>
+    <rotation>0</rotation>
+  </file>
+  <file name="the-classroom-3_flash_archive.torrent" source="metadata">
+    <btih>3377da4bd3ade22863489d454f50df3c33cb46ff</btih>
+    <mtime>1610817945</mtime>
+    <size>2141</size>
+    <md5>9a25e07eace9140322d897a2c8919f22</md5>
+    <crc32>9c1b1146</crc32>
+    <sha1>2a450fa92dad8531829e1bb2f6b0cf3160ed5007</sha1>
+    <format>Archive BitTorrent</format>
+  </file>
+  <file name="the-classroom-3_flash_files.xml" source="original">
+    <format>Metadata</format>
+    <md5>19a1c3d2e3d235624051128dbee92719</md5>
+  </file>
+  <file name="the-classroom-3_flash_meta.sqlite" source="original">
+    <mtime>1608769809</mtime>
+    <size>14336</size>
+    <md5>7b1b1d1b82030a0f894311c385af1552</md5>
+    <crc32>dc24974f</crc32>
+    <sha1>6ee27302981bb63c198568cd7a718bba06455790</sha1>
+    <format>Metadata</format>
+  </file>
+  <file name="the-classroom-3_flash_meta.xml" source="original">
+    <mtime>1610817942</mtime>
+    <size>995</size>
+    <md5>a26ded9d6e1b91b59589f57968b47007</md5>
+    <crc32>49975f2f</crc32>
+    <sha1>18fd3a41897d7fe37da18dc585dfff13d40e7d8d</sha1>
+    <format>Metadata</format>
+  </file>
+</files>
