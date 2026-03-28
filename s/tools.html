@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>ALEKS</title>
+<link id="favicon" rel="icon" href="ICONS/AleksIcon.png" type="image/x-icon">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('Photos/StarBG.avif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    
+    /* ADD THESE THREE LINES */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Forces body to be exactly the screen height */
+}
+    .button2 {
+position: relative;/* Add this to anchor the absolute image */
+    border: 2px solid white;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+.button2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Use 'cover' to maintain aspect ratio while filling */
+    opacity: 0.7;
+}
+    .button2 a {
+            text-decoration: none;
+            color: white;
+display: block;
+    }
+
+
+.scroll-box {
+    border: 2px solid white;
+    padding: 5px;
+    
+    /* CHANGE THESE LINES */
+    flex-grow: 1;       /* This pushes the box to the very bottom */
+    overflow-y: auto;   /* Scroll only when needed */
+    overflow-x: hidden; /* Prevents side-scrolling on zoom */
+}
+
+.container {
+    display: grid;
+    /* Use auto-fill instead of repeat(6) to prevent side-scrolling when zooming */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px;
+    padding: 5px;
+    justify-items: center; /* Centers buttons if there is extra space */
+}
+.button {
+    position: relative; /* Add this to anchor the absolute image */
+    border: 2px solid white;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    overflow: hidden;    /* Optional: clips image if it overflows */
+  }
+
+
+  .button img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Use 'cover' to maintain aspect ratio while filling */
+    opacity: 0.7;
+  }
+.button a {
+            text-decoration: none;
+            color: white;
+display: block;
+}
+
+
+.button .name{
+position: absolute;
+    bottom: 10px; /* Adjusted to sit better */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap; /* Prevents text from wrapping */
+
+
+}
+.button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.hidden-buttons {
+  display: none; /* Hide the container by default */
+}
+.visible-buttons {
+  display: block; /* Show the container when this class is added */
+}
+
+
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px; /* width of the vertical scrollbar */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #ff0000; /* color of the draggable handle */
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body style="background-color: #6E6666">
+
+<div style="position: relative; height: 50px; border: 0px solid black;">
+    <button onclick="openTabs()">Suggestions</button>
+  <button style="position: absolute; top: 10px; right: 10px;" id="showMoreButton" type="button">Show More Buttons</button>
+<div style="position: relative; height: 50px; border: 0px solid black;" id="hiddenButtonsContainer" class="hidden-buttons">
+<input style="position: absolute; top: 33px; right: 200px;" type="file" id="imageUploader" accept="image/*">
+  <button style="position: absolute; top: 33px; right: 140px;" type="button" onclick="setFavicon()">Change Tab Icon</button>
+  <button style="position: absolute; top: 33px; right: 10px;" type="button" onclick="TabName()">Change Tab Name</button>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+  <h1 style="margin: 0;">GAMES</h1>
+
+  <div class="button2">
+    <a href="tools.html">
+      <img src="Photos/fowwardArrow.png">
+    </a>
+  </div>
+</div>
+
+
+</h1>
+<h2>Uh like unblocked games or smth like that</h2>
+<div class="scroll-box">
+<div class="container">
+
+
+<div class="button"><a href="Tools/EmulatorJS/index.html">
+<img src="Tools/EmulatorJS/docs/Logo-light.png" alt="Background Image">
+<div class="name">EmulatorJS</div>
+</div></a>
+
+
+<div class="button"><a href="Tools/Ruffle/index.html">
+<img src="Photos/ruffle-flash-player-emulator.jpg" alt="Background Image">
+<div class="name">Ruffle</div>
+</div></a>
+
+
+
+
+</div>
+</div>
+
+
+<script>
+function TabName(){
+let NameT = prompt("Tab Name?");
+document.title = `${NameT}`;
+}
+
+
+
+
+document.getElementById('showMoreButton').addEventListener('click', function() {
+  const container = document.getElementById('hiddenButtonsContainer');
+  container.classList.toggle('visible-buttons');
+  // Optional: hide the "Show More" button after click
+  // this.style.display = 'none'; 
+});
+
+
+
+
+
+
+
+
+
+
+function setFavicon() {
+    const fileInput = document.getElementById('imageUploader');
+    const files = fileInput.files;
+
+
+    if (files && files.length > 0) {
+        const reader = new FileReader();
+
+
+        reader.onload = function(e) {
+            const imageUrl = e.target.result;
+            const faviconLink = document.getElementById('favicon');
+            
+            // Update the href attribute with the new image URL
+            faviconLink.href = imageUrl; 
+            
+            // Optional: update the type attribute based on the file type
+            faviconLink.type = files[0].type; 
+        };
+
+
+        // Read the file as a data URL
+        reader.readAsDataURL(files[0]);
+    } else {
+        alert("Please select an image file to upload.");
+    }
+}
+
+
+
+
+
+
+function openTabs() { const urls = [ "https://docs.google.com/document/d/1UJ47lUExzaqsGK9M_v2Fx3B9yqt1XBohM27g4IIyZsY/edit?usp=sharing"]; urls.forEach(url => window.open(url, "_blank")); }
+
+
+</script>
+
+
+</body>
+</html>
